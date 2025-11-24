@@ -63,6 +63,9 @@ The resulting `eve.json` file was parsed to extract:
 
 ![Suricata Summary](screenshots/Suricata_summary.png)
 
+> **Generated using a custom analysis script**:
+> `analyze_suricata.py` (parses `eve.json` and produces the summary view shown above)
+
 **Key Observations**
 
 * Total alerts: **284**
@@ -100,12 +103,12 @@ Each IOC was enriched using the following sources:
 
 ### **VirusTotal (VT)**
 
-* Count of malicious, suspicious, and harmless detections across malware engines
+* Malicious, suspicious, harmless detection counts from AV engines
 
 ### **AbuseIPDB**
 
-* Abuse confidence score (0–100)
-* Total number of global abuse reports
+* Abuse confidence (0–100)
+* Total global reports
 
 Run command:
 
@@ -134,16 +137,16 @@ This places emphasis on VT and AbuseIPDB—strong indicators of real-world malic
 (as produced by the enrichment script)
 
 ```
-72.5   78.153.140.177   (VT 17 mal / 1 susp ; Abuse 100 , 1941 reports)
-63.5   172.104.11.4     (VT 14 mal / 1 susp ; Abuse 100 , 1742 reports)
-60.5   172.105.128.13   (VT 13 mal / 1 susp ; Abuse 100 , 1741 reports)
-56.0   45.79.181.179    (VT 11 mal / 2 susp ; Abuse 100 , 1815 reports)
-53.0   45.79.181.94     (VT 10 mal / 2 susp ; Abuse 100 , 1757 reports)
-47.0   45.79.172.21     (VT 8  mal / 2 susp ; Abuse 100 , 1996 reports)
-32.0   185.213.175.171  (VT 6  mal / 2 susp ; Abuse 55  , 110  reports)
-16.5   202.112.238.240  (VT 4  mal / 3 susp ; Abuse 0   , 0    reports)
-16.5   118.123.105.93   (VT 5  mal / 1 susp ; Abuse 0   , 0    reports)
-3.0    203.161.44.208   (VT 1  mal / 0 susp ; Abuse 0   , 0    reports)
+72.5   78.153.140.177  
+63.5   172.104.11.4     
+60.5   172.105.128.13   
+56.0   45.79.181.179    
+53.0   45.79.181.94     
+47.0   45.79.172.21     
+32.0   185.213.175.171  
+16.5   202.112.238.240  
+16.5   118.123.105.93   
+3.0    203.161.44.208   
 ```
 
 This ranking represents the **final true order of priority**.
@@ -169,10 +172,10 @@ This ranking represents the **final true order of priority**.
 
 # **Findings**
 
-* The highest-ranked IPs show extremely high AbuseIPDB scores and long abuse histories.
-* VirusTotal detections indicate repeated malicious behavior across multiple engines.
-* Suricata signatures confirm active scanning and malformed traffic.
-* Combined scoring highlights the most dangerous attacker IPs requiring immediate investigation or blocking.
+* Top-ranked IPs show extremely high AbuseIPDB scores and long abuse histories.
+* VirusTotal detections indicate repeated malicious behavior across engines.
+* Suricata alerts confirm active scanning, probing, and malformed traffic.
+* Combined scoring highlights attacker IPs that warrant immediate action.
 
 ---
 
@@ -183,6 +186,7 @@ This ranking represents the **final true order of priority**.
 * [`eve.json.zip`](logs/eve.zip)
 * [`extract_iocs.py`](scripts/extract_iocs.py)
 * [`enrich_iocs.py`](scripts/enrich_iocs.py)
+* [`analyze_suricata.py`](scripts/analyze_suricata.py)
 
 ### **PCAP Source**
 
@@ -205,16 +209,15 @@ This project demonstrates a complete SOC-grade threat-analysis workflow:
 ### Recommended SOC Actions
 
 * Block the top malicious IPs at perimeter controls.
-* Add enrichment-based logic to SIEM correlation rules.
+* Add VT/AbuseIPDB-based enrichment logic to SIEM correlation rules.
 * Enable automated enrichment pipelines for future Suricata events.
-* Correlate IDS logs with EDR, firewall, and authentication telemetry.
+* Correlate IDS alerts with EDR, firewall, and authentication telemetry.
 
-This workflow can be extended into ongoing threat-hunting, detection engineering, and automated SOC playbooks.
+This workflow can be extended into threat hunting, detection engineering, and automated SOC playbooks.
 
 ---
 
-**Author:** Abdinoor Ahmed
-
+**Author:** Abdinoor Ahmed  
 Suricata Log Analysis & SOC Alert Prioritization Lab
 
 ---
