@@ -180,7 +180,7 @@ This ranking represents the **final true order of priority**.
 
 **Included Files**
 
-* [`eve.json.zip`](logs/eve.json.zip)
+* [`eve.json.zip`](logs/eve.zip)
 * [`extract_iocs.py`](scripts/extract_iocs.py)
 * [`enrich_iocs.py`](scripts/enrich_iocs.py)
 
