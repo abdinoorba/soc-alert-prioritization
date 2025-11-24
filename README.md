@@ -180,9 +180,9 @@ This ranking represents the **final true order of priority**.
 
 **Included Files**
 
-* [`logs/eve.json.zip`](eve.json.zip)
-* [`scripts/extract_iocs.py`](extract_iocs.py)
-* [`scripts/enrich_iocs.py`](enrich_iocs.py)
+* [`eve.json.zip`](logs/eve.json.zip)
+* [`extract_iocs.py`](scripts/extract_iocs.py)
+* [`enrich_iocs.py`](scripts/enrich_iocs.py)
 
 ### **PCAP Source**
 
