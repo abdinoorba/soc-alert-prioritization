@@ -180,7 +180,7 @@ This ranking represents the **final true order of priority**.
 
 **Included Files**
 
-* [`logs/eve.json.zip`](suricata_output/eve.json.zip)
+* [`logs/eve.json.zip`](eve.json.zip)
 * [`extract_iocs.py`](extract_iocs.py)
 * [`enrich_iocs.py`](enrich_iocs.py)
 
